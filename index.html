@@ -18,7 +18,7 @@
                     },
                     colors: {
                         brand: {
-                            red: '#E53935', // Rojo vibrante y de urgencia
+                            red: '#E53935',
                             darkred: '#C62828',
                             black: '#111827',
                             gray: '#1F2937',
@@ -33,7 +33,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbar for better aesthetics */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #111827; }
         ::-webkit-scrollbar-thumb { background: #E53935; border-radius: 4px; }
@@ -43,11 +42,11 @@
 </head>
 <body class="bg-brand-light text-gray-800 font-sans antialiased overflow-x-hidden">
 
+    <!-- Navbar -->
     <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <!-- Logo -->
                     <div class="flex items-center gap-2">
                         <div class="bg-brand-red p-2 rounded-lg text-white">
                             <i class="fa-solid fa-gavel text-xl transform -rotate-12"></i>
@@ -59,7 +58,6 @@
                     </div>
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#como-funciona" class="text-gray-300 hover:text-white font-medium transition">¿Cómo Funciona?</a>
                     <a href="#subastas" class="text-gray-300 hover:text-white font-medium transition">Subastas Activas</a>
@@ -69,7 +67,6 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-brand-red focus:outline-none p-2 text-2xl">
                         <i class="fa-solid fa-bars"></i>
@@ -78,7 +75,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-black border-b border-gray-800">
             <div class="px-2 pt-2 pb-5 space-y-1 sm:px-3 flex flex-col items-center">
                 <a href="#como-funciona" class="block px-3 py-3 text-white text-lg font-medium w-full text-center hover:bg-gray-800 rounded-md">¿Cómo Funciona?</a>
@@ -88,8 +84,8 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-brand-black">
-        <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0" style="background-image: radial-gradient(#E53935 1px, transparent 1px); background-size: 30px 30px;"></div>
         </div>
@@ -115,7 +111,6 @@
             </div>
         </div>
         
-        <!-- Wave Divider -->
         <div class="absolute bottom-0 w-full leading-none z-10">
             <svg class="block w-full h-12 md:h-20" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.3,197.83,111.42Z" class="fill-brand-light"></path>
@@ -123,6 +118,7 @@
         </div>
     </section>
 
+    <!-- ¿Cómo funciona? -->
     <section id="como-funciona" class="py-20 bg-brand-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -131,10 +127,8 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 relative">
-                <!-- Connecting Line (Desktop only) -->
                 <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-gradient-to-r from-gray-300 via-brand-red to-gray-300 z-0"></div>
 
-                <!-- Step 1 -->
                 <div class="relative z-10 flex flex-col items-center text-center group">
                     <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center text-brand-black text-4xl shadow-xl border-4 border-gray-100 group-hover:border-brand-red transition duration-300 mb-6">
                         <i class="fa-solid fa-mobile-screen"></i>
@@ -144,7 +138,6 @@
                     <p class="text-gray-600 text-lg">Revisa nuestras publicaciones en Instagram, TikTok o Facebook y elige tu producto ideal.</p>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="relative z-10 flex flex-col items-center text-center group">
                     <div class="w-24 h-24 bg-brand-red text-white rounded-full flex items-center justify-center text-4xl shadow-xl border-4 border-red-200 group-hover:scale-110 transition duration-300 mb-6">
                         <i class="fa-regular fa-comment-dots"></i>
@@ -154,7 +147,6 @@
                     <p class="text-gray-600 text-lg">Solo escribe <strong>"puja [monto]"</strong> en los comentarios del video. ¡Nuestro sistema registrará tu oferta al instante!</p>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="relative z-10 flex flex-col items-center text-center group">
                     <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center text-brand-black text-4xl shadow-xl border-4 border-gray-100 group-hover:border-brand-red transition duration-300 mb-6">
                         <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -167,6 +159,7 @@
         </div>
     </section>
 
+    <!-- Subastas Activas -->
     <section id="subastas" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -190,37 +183,36 @@
             <!-- Grid de Productos -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 
-             <!-- Producto: Esmeril Angular Makita 9" -->
-<div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
-    <div class="relative h-56 bg-gray-100">
-        <!-- ESMERILANGULARMAKITA.png -->
-        <img src="ESMERILANGULARMAKITA.png" alt="ESMERIL ANGULAR MAKITA 9" class="w-full h-full object-cover">
-        <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-            DISPONIBLE
-        </div>
-    </div>
-    <div class="p-5 flex flex-col flex-grow">
-        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Herramientas</p>
-        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Esmeril Angular Makita 9"</h3>
-        <div class="mt-auto pt-4 border-t border-gray-100">
-            <div class="flex justify-between items-end mb-4">
-                <div>
-                    <p class="text-xs text-gray-400">Puja actual</p>
-                    <p class="text-2xl font-black text-red-600">$80.000</p>
+                <!-- Producto 1: Esmeril Angular Makita 9" -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-100">
+                        <img src="ESMERILANGULARMAKITA.png" alt="ESMERIL ANGULAR MAKITA 9" class="w-full h-full object-cover">
+                        <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                            DISPONIBLE
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Herramientas</p>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Esmeril Angular Makita 9"</h3>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <div class="flex justify-between items-end mb-4">
+                                <div>
+                                    <p class="text-xs text-gray-400">Puja actual</p>
+                                    <p class="text-2xl font-black text-red-600">$80.000</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-gray-400">Precio Ref.</p>
+                                    <p class="text-sm font-semibold text-gray-400 line-through">$285.000</p>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Esmeril%20Angular%20Makita%209" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
+                                ⚡ Comprar / Reservar
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right">
-                    <p class="text-xs text-gray-400">Precio Ref.</p>
-                    <p class="text-sm font-semibold text-gray-400 line-through">$285.000</p>
-                </div>
-            </div>
-            <!-- Enlace directo a WhatsApp con mensaje personalizado -->
-           <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20la%20Ingleteadora%20Telesc%C3%B3pica%20TOTAL" target="_blank" class="...">
-    ⚡ Comprar / Reservar
-</a>
-        </div>
-    </div>
-</div>
-                <!-- Producto 2 (La Propiedad) -->
+
+                <!-- Producto 2: Terreno San Alfonso -->
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
                     <div class="relative h-56 bg-gray-100">
                         <img src="terrenoSanAlfonso.jpeg" alt="Terreno Comercial" class="w-full h-full object-cover">
@@ -242,14 +234,14 @@
                                     <p class="text-sm font-semibold text-gray-500 line-through">$240.000.000</p>
                                 </div>
                             </div>
-                            <!-- Enlace directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto Terreno San Alfonso" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                ⚡ Comprar / Reservar
-            </a>
-        </div>
-    </div>
-</div>
-                <!-- Producto 3 (Compresor Abac 100 lt.-2 HP) -->
+                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Terreno%20San%20Alfonso" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
+                                ⚡ Comprar / Reservar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Compresor Abac -->
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col ring-2 ring-brand-red">
                     <div class="relative h-56 bg-gray-100">
                         <div class="absolute top-0 left-0 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-br-lg z-10 shadow">DESTACADO</div>
@@ -272,17 +264,17 @@
                                     <p class="text-sm font-semibold text-gray-500 line-through">$639.900</p>
                                 </div>
                             </div>
-                           <!-- Enlace directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto Compresor Abac 100 lt" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                ⚡ Comprar / Reservar
-            </a>
-        </div>
-    </div>
-</div>
-                <!-- Producto 4 (Esmeril de banco Total) -->
+                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Compresor%20Abac%20100%20lt" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
+                                ⚡ Comprar / Reservar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Esmeril de banco Total -->
                 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
                     <div class="relative h-56 bg-gray-100">
-                        <img src="ESMERILDEBANCOTOTAL.png" alt="PS5" class="w-full h-full object-cover">
+                        <img src="ESMERILDEBANCOTOTAL.png" alt="Esmeril de Banco" class="w-full h-full object-cover">
                         <div class="absolute top-3 right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow">
                             <i class="fa-regular fa-clock mr-1"></i> <span class="countdown" data-hours="8">08:05:59</span>
                         </div>
@@ -301,17 +293,18 @@
                                     <p class="text-sm font-semibold text-gray-500 line-through">$50.000</p>
                                 </div>
                             </div>
-                           <!-- Enlace directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto Esmeril de Banco Total" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                ⚡ Comprar / Reservar
-            </a>
-        </div>
-    </div>
-</div>
+                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Esmeril%20de%20Banco%20Total" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
+                                ⚡ Comprar / Reservar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ¿Tienes algo que vender? -->
     <section class="py-16 bg-brand-red relative overflow-hidden">
         <div class="absolute right-0 top-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
             <i class="fa-solid fa-gavel text-[250px] text-white"></i>
@@ -319,21 +312,16 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 class="text-3xl md:text-5xl font-black text-white mb-6">¿Tienes algo que vender?</h2>
             <p class="text-xl text-white/90 mb-8 font-medium">Nosotros lo subastamos por ti. Convierte ese artículo guardado en dinero rápido hoy mismo.</p>
-            <!-- Enlace directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20vender%20un%20producto, cuales son los pasos a seguir?" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                ⚡ Comprar / Reservar
+            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20vender%20un%20producto,%20¿cuáles%20son%20los%20pasos%20a%20seguir?" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-white text-brand-red hover:bg-gray-100 font-bold px-8 py-4 rounded-xl transition shadow-lg text-lg">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Vender mi producto
             </a>
-        </div>
-    </div>
-</div>
-            </button>
         </div>
     </section>
 
-    <footer class="bg-brand-black pt-16 pb-8 border-t-4 border-brand-red">
+    <!-- Footer -->
+    <footer id="contacto" class="bg-brand-black pt-16 pb-8 border-t-4 border-brand-red">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
-                <!-- Branding -->
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
                         <div class="bg-brand-red p-1.5 rounded-md text-white">
@@ -358,7 +346,6 @@
                     </div>
                 </div>
 
-                <!-- Links -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
@@ -369,7 +356,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Ayuda y Soporte</h4>
                     <ul class="space-y-3">
@@ -393,13 +379,9 @@
         </div>
     </footer>
 
-    
-    <!-- Modal de Puja (Replaces Alert) -->
+    <!-- Modal de Puja -->
     <div id="bidModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
-        <!-- Backdrop -->
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
-        
-        <!-- Modal Content -->
         <div class="bg-white rounded-3xl w-full max-w-md relative z-10 shadow-2xl transform scale-100 transition-transform overflow-hidden">
             <div class="bg-brand-red p-6 text-center">
                 <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
@@ -407,10 +389,8 @@
                 </div>
                 <h3 class="text-2xl font-black text-white" id="modalTitle">¡Participa en Instagram!</h3>
             </div>
-            
             <div class="p-8 text-center">
                 <p class="text-gray-600 mb-6 text-lg">Para asegurar la transparencia, todas nuestras pujas se realizan mediante comentarios en nuestras redes sociales.</p>
-                
                 <div class="bg-gray-100 p-4 rounded-xl mb-6">
                     <p class="text-sm font-semibold text-gray-500 mb-1">Producto:</p>
                     <p id="modalProduct" class="font-bold text-brand-black mb-3">Nombre</p>
@@ -423,7 +403,6 @@
                     </div>
                     <p id="copySuccess" class="text-green-600 text-xs font-bold mt-2 hidden">¡Copiado al portapapeles!</p>
                 </div>
-                
                 <div class="flex flex-col gap-3">
                     <a href="#" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         Ir a la publicación de Instagram
@@ -443,31 +422,42 @@
             <i class="fa-brands fa-whatsapp text-6xl text-green-500 mb-4"></i>
             <h3 class="text-2xl font-black text-brand-black mb-2">Hablemos por WhatsApp</h3>
             <p class="text-gray-600 mb-6">Un ejecutivo te guiará para publicar tu producto en nuestras próximas subastas.</p>
-            <a href="#" class="w-full block bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition shadow-lg mb-3">
+            <a href="https://wa.me/56957128923?text=Hola,%20necesito%20soporte" target="_blank" class="w-full block bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition shadow-lg mb-3">
                 Abrir Chat
             </a>
             <button onclick="closeContactModal()" class="text-gray-500 font-semibold hover:text-gray-800">Cancelar</button>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script>
+        // ==========================================
+        // CONFIGURACIÓN DE CONEXIÓN CON AIRTABLE
+        // ==========================================
+        const TOKEN = 'AQUÍ_PEGA_TU_TOKEN_PAT';
+        const BASE_ID = 'AQUÍ_PEGA_TU_BASE_ID';
 
-        // Mobile Menu Toggle
+        // ==========================================
+        // NAVEGACIÓN Y MENÚ MÓVIL
+        // ==========================================
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
             });
-        });
 
-        // Modal Logic for Bidding (Replaces window.alert)
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        }
+
+        // ==========================================
+        // LÓGICA DE MODALES Y COPIA DE TEXTO
+        // ==========================================
         const bidModal = document.getElementById('bidModal');
         const modalProduct = document.getElementById('modalProduct');
         const modalCode = document.getElementById('modalCode');
@@ -475,75 +465,43 @@
         let textToCopy = '';
 
         function openModal(productName, currentBid, suggestedBidText) {
+            if (!bidModal) return;
             modalProduct.textContent = productName;
             modalCode.textContent = suggestedBidText;
             textToCopy = suggestedBidText;
             copySuccess.classList.add('hidden');
             bidModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
+            if (!bidModal) return;
             bidModal.classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
 
+        function closeContactModal() {
+            const contactModal = document.getElementById('contactModal');
+            if (contactModal) contactModal.classList.add('hidden');
+        }
+
         function copyBidText() {
-            // Use legacy execCommand as navigator.clipboard might fail in iframes
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy;
             document.body.appendChild(textArea);
             textArea.select();
             try {
                 document.execCommand('copy');
-                copySuccess.classList.remove('hidden');
+                if (copySuccess) copySuccess.classList.remove('hidden');
                 setTimeout(() => {
-                    copySuccess.classList.add('hidden');
+                    if (copySuccess) copySuccess.classList.add('hidden');
                 }, 2000);
             } catch (err) {
-                console.error('Failed to copy', err);
+                console.error('Error al copiar:', err);
+            } finally {
+                document.body.removeChild(textArea);
             }
-            document.body.removeChild(textArea);
         }
-
-        // Contact Modal Logic
-        const contactModalEl = document.getElementById('contactModal');
-        function contactModal() {
-            contactModalEl.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeContactModal() {
-            contactModalEl.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Simple Countdown Timer simulation for visual effect
-        document.querySelectorAll('.countdown').forEach(el => {
-            let hoursStr = el.getAttribute('data-hours');
-            let h = parseInt(hoursStr) || 24;
-            let m = Math.floor(Math.random() * 60);
-            let s = Math.floor(Math.random() * 60);
-
-            setInterval(() => {
-                if(s > 0) {
-                    s--;
-                } else {
-                    s = 59;
-                    if(m > 0) {
-                        m--;
-                    } else {
-                        m = 59;
-                        if(h > 0) h--;
-                    }
-                }
-                
-                let hStr = h < 10 ? '0' + h : h;
-                let mStr = m < 10 ? '0' + m : m;
-                let sStr = s < 10 ? '0' + s : s;
-                
-                el.textContent = `${hStr}:${mStr}:${sStr}`;
-            }, 1000);
-        });
     </script>
 </body>
 </html>
