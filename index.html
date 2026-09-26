@@ -112,7 +112,7 @@
         </div>
         
         <div class="absolute bottom-0 w-full leading-none z-10">
-            <svg class="block w-full h-12 md:h-20" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <svg class="block w-full h-12 md:h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.3,197.83,111.42Z" class="fill-brand-light"></path>
             </svg>
         </div>
@@ -126,10 +126,7 @@
                 <p class="text-xl text-gray-600">No necesitas instalar nada. Participa directamente desde tu red social favorita.</p>
             </div>
             
-         <!-- Grid de Productos Dinámico -->
-<div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-    <!-- Los productos de Airtable se cargarán aquí automáticamente -->
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-gradient-to-r from-gray-300 via-brand-red to-gray-300 z-0"></div>
 
                 <div class="relative z-10 flex flex-col items-center text-center group">
@@ -176,133 +173,11 @@
                     </h2>
                     <p class="text-xl text-gray-600 font-medium">Desde una aguja hasta una propiedad. ¡Puja antes de que se acabe el tiempo!</p>
                 </div>
-                <div class="mt-4 md:mt-0 flex gap-2">
-                    <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full font-semibold text-brand-black transition">Todas</button>
-                    <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-full font-semibold transition">Herramientas</button>
-                    <button class="px-4 py-2 text-gray-500 hover:bg-gray-100 rounded-full font-semibold transition">Tecnología</button>
-                </div>
             </div>
 
-            <!-- Grid de Productos -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Producto 1: Esmeril Angular Makita 9" -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
-                    <div class="relative h-56 bg-gray-100">
-                        <img src="ESMERILANGULARMAKITA.png" alt="ESMERIL ANGULAR MAKITA 9" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                            DISPONIBLE
-                        </div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Herramientas</p>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2">Esmeril Angular Makita 9"</h3>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex justify-between items-end mb-4">
-                                <div>
-                                    <p class="text-xs text-gray-400">Puja actual</p>
-                                    <p class="text-2xl font-black text-red-600">$80.000</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-xs text-gray-400">Precio Ref.</p>
-                                    <p class="text-sm font-semibold text-gray-400 line-through">$285.000</p>
-                                </div>
-                            </div>
-                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Esmeril%20Angular%20Makita%209" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                                ⚡ Comprar / Reservar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 2: Terreno San Alfonso -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
-                    <div class="relative h-56 bg-gray-100">
-                        <img src="terrenoSanAlfonso.jpeg" alt="Terreno Comercial" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                            <i class="fa-regular fa-clock mr-1"></i> <span class="countdown" data-hours="48">48:00:00</span>
-                        </div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Vende su dueño</p>
-                        <h3 class="text-lg font-bold text-brand-black mb-2 line-clamp-2">Terreno 2000 m2 con casa en San Alfonso, San José de Maipo</h3>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex justify-between items-end mb-4">
-                                <div>
-                                    <p class="text-sm text-gray-500">Puja Actual</p>
-                                    <p class="text-2xl font-black text-brand-red">$170.000.000</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-xs text-gray-400">Precio Ref.</p>
-                                    <p class="text-sm font-semibold text-gray-500 line-through">$240.000.000</p>
-                                </div>
-                            </div>
-                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Terreno%20San%20Alfonso" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                                ⚡ Comprar / Reservar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 3: Compresor Abac -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col ring-2 ring-brand-red">
-                    <div class="relative h-56 bg-gray-100">
-                        <div class="absolute top-0 left-0 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-br-lg z-10 shadow">DESTACADO</div>
-                        <img src="compresor-abac.png" alt="Compresor-Abac" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                            <i class="fa-regular fa-clock mr-1"></i> <span class="countdown" data-hours="72">72:00:00</span>
-                        </div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Herramientas</p>
-                        <h3 class="text-lg font-bold text-brand-black mb-2 line-clamp-2">Compresor Abac 100 lt.-2 HP</h3>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex justify-between items-end mb-4">
-                                <div>
-                                    <p class="text-sm text-gray-500">Puja Actual</p>
-                                    <p class="text-2xl font-black text-brand-red">$150.000</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-xs text-gray-400">Precio Ref.</p>
-                                    <p class="text-sm font-semibold text-gray-500 line-through">$639.900</p>
-                                </div>
-                            </div>
-                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Compresor%20Abac%20100%20lt" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                                ⚡ Comprar / Reservar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 4: Esmeril de banco Total -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
-                    <div class="relative h-56 bg-gray-100">
-                        <img src="ESMERILDEBANCOTOTAL.png" alt="Esmeril de Banco" class="w-full h-full object-cover">
-                        <div class="absolute top-3 right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-                            <i class="fa-regular fa-clock mr-1"></i> <span class="countdown" data-hours="8">08:05:59</span>
-                        </div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-grow">
-                        <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Tecnología</p>
-                        <h3 class="text-lg font-bold text-brand-black mb-2 line-clamp-2">Esmeril de Banco eléctrico Marca Total</h3>
-                        <div class="mt-auto pt-4 border-t border-gray-100">
-                            <div class="flex justify-between items-end mb-4">
-                                <div>
-                                    <p class="text-sm text-gray-500">Puja Actual</p>
-                                    <p class="text-2xl font-black text-brand-red">$22.000</p>
-                                </div>
-                                <div class="text-right">
-                                    <p class="text-xs text-gray-400">Precio Ref.</p>
-                                    <p class="text-sm font-semibold text-gray-500 line-through">$50.000</p>
-                                </div>
-                            </div>
-                            <a href="https://wa.me/56957128923?text=Hola,%20quiero%20comprar%20el%20Producto%20Esmeril%20de%20Banco%20Total" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
-                                ⚡ Comprar / Reservar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- Grid de Productos Dinámico -->
+            <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Los productos desde Airtable se renderizan aquí dinámicamente -->
             </div>
         </div>
     </section>
@@ -355,7 +230,6 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Inicio</a></li>
                         <li><a href="#como-funciona" class="text-gray-400 hover:text-white transition">¿Cómo Funciona?</a></li>
                         <li><a href="#subastas" class="text-gray-400 hover:text-white transition">Subastas Activas</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Términos y Condiciones</a></li>
                     </ul>
                 </div>
 
@@ -382,64 +256,14 @@
         </div>
     </footer>
 
-    <!-- Modal de Puja -->
-    <div id="bidModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
-        <div class="bg-white rounded-3xl w-full max-w-md relative z-10 shadow-2xl transform scale-100 transition-transform overflow-hidden">
-            <div class="bg-brand-red p-6 text-center">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg">
-                    <i class="fa-brands fa-instagram text-3xl text-brand-red"></i>
-                </div>
-                <h3 class="text-2xl font-black text-white" id="modalTitle">¡Participa en Instagram!</h3>
-            </div>
-            <div class="p-8 text-center">
-                <p class="text-gray-600 mb-6 text-lg">Para asegurar la transparencia, todas nuestras pujas se realizan mediante comentarios en nuestras redes sociales.</p>
-                <div class="bg-gray-100 p-4 rounded-xl mb-6">
-                    <p class="text-sm font-semibold text-gray-500 mb-1">Producto:</p>
-                    <p id="modalProduct" class="font-bold text-brand-black mb-3">Nombre</p>
-                    <p class="text-sm font-semibold text-gray-500 mb-1">Para superar la oferta actual, comenta:</p>
-                    <div class="flex items-center justify-center gap-2 mt-2">
-                        <code id="modalCode" class="bg-white px-4 py-2 border border-gray-300 rounded-lg text-brand-red font-bold text-xl select-all">puja X</code>
-                        <button onclick="copyBidText()" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-lg text-gray-700 transition" title="Copiar texto">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
-                    <p id="copySuccess" class="text-green-600 text-xs font-bold mt-2 hidden">¡Copiado al portapapeles!</p>
-                </div>
-                <div class="flex flex-col gap-3">
-                    <a href="#" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        Ir a la publicación de Instagram
-                    </a>
-                    <button onclick="closeModal()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-xl transition">
-                        Cerrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Contacto -->
-    <div id="contactModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeContactModal()"></div>
-        <div class="bg-white rounded-3xl w-full max-w-sm relative z-10 p-8 text-center shadow-2xl border-t-8 border-green-500">
-            <i class="fa-brands fa-whatsapp text-6xl text-green-500 mb-4"></i>
-            <h3 class="text-2xl font-black text-brand-black mb-2">Hablemos por WhatsApp</h3>
-            <p class="text-gray-600 mb-6">Un ejecutivo te guiará para publicar tu producto en nuestras próximas subastas.</p>
-            <a href="https://wa.me/56957128923?text=Hola,%20necesito%20soporte" target="_blank" class="w-full block bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl transition shadow-lg mb-3">
-                Abrir Chat
-            </a>
-            <button onclick="closeContactModal()" class="text-gray-500 font-semibold hover:text-gray-800">Cancelar</button>
-        </div>
-    </div>
-
     <!-- Scripts -->
-   <script>
+    <script>
         // ==========================================
         // CONFIGURACIÓN DE CONEXIÓN CON AIRTABLE
         // ==========================================
-        const TOKEN = 'AQUÍ_PEGA_TU_TOKEN_PAT';
-        const BASE_ID = 'AQUÍ_PEGA_TU_BASE_ID';
-        const TABLE_NAME = 'Productos'; // Nombre exacto de tu tabla en Airtable
+        const TOKEN = 'patsv7jWU24fHhv0V.bf0cb54c1ce752a7719a6995abf7a4b0dcd8e826dd52c7ced8aa433c38dc187a'; // Ejemplo: 'patXXXXXXXXXXXXX'
+        const BASE_ID = 'app6eLq2iamBecJh3';  // Ejemplo: 'appXXXXXXXXXXXXX'
+        const TABLE_NAME = 'Productos';
 
         // ==========================================
         // FUNCIÓN PARA LEER PRODUCTOS DESDE AIRTABLE
@@ -448,7 +272,6 @@
             const container = document.getElementById('products-container');
             if (!container) return;
 
-            // Muestra mensaje de carga en pantalla
             container.innerHTML = `
                 <div class="col-span-full text-center py-12">
                     <i class="fa-solid fa-spinner fa-spin text-4xl text-brand-red mb-3"></i>
@@ -480,10 +303,8 @@
                     return;
                 }
 
-                // Limpia el mensaje de carga
                 container.innerHTML = '';
 
-                // Crea cada tarjeta de producto
                 records.forEach(record => {
                     const fields = record.fields;
                     
@@ -493,7 +314,6 @@
                     const precioRef = fields.PrecioRef ? `$${Number(fields.PrecioRef).toLocaleString('es-CL')}` : null;
                     const horas = fields.HorasRestantes || '24';
                     
-                    // Extraer foto de Airtable
                     let fotoUrl = 'https://via.placeholder.com/400x300?text=Sin+Imagen';
                     if (fields.Foto && Array.isArray(fields.Foto) && fields.Foto.length > 0) {
                         fotoUrl = fields.Foto[0].url;
@@ -501,7 +321,6 @@
                         fotoUrl = fields.Foto;
                     }
 
-                    // Enlace directo a WhatsApp
                     const mensajeWsp = encodeURIComponent(`Hola, quiero comprar/reservar el producto: ${nombre}`);
                     const wspLink = `https://wa.me/56957128923?text=${mensajeWsp}`;
 
@@ -551,11 +370,9 @@
             }
         }
 
-        // Ejecutar la carga automáticamente cuando abra la página
         document.addEventListener('DOMContentLoaded', () => {
             cargarProductosAirtable();
             
-            // Navegación menú móvil
             const btn = document.getElementById('mobile-menu-btn');
             const menu = document.getElementById('mobile-menu');
             if (btn && menu) {
@@ -563,50 +380,6 @@
                 menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
             }
         });
-
-        // Modales y utilidades
-        const bidModal = document.getElementById('bidModal');
-        const modalProduct = document.getElementById('modalProduct');
-        const modalCode = document.getElementById('modalCode');
-        const copySuccess = document.getElementById('copySuccess');
-        let textToCopy = '';
-
-        function openModal(productName, currentBid, suggestedBidText) {
-            if (!bidModal) return;
-            modalProduct.textContent = productName;
-            modalCode.textContent = suggestedBidText;
-            textToCopy = suggestedBidText;
-            if (copySuccess) copySuccess.classList.add('hidden');
-            bidModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            if (!bidModal) return;
-            bidModal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function closeContactModal() {
-            const contactModal = document.getElementById('contactModal');
-            if (contactModal) contactModal.classList.add('hidden');
-        }
-
-        function copyBidText() {
-            const textArea = document.createElement("textarea");
-            textArea.value = textToCopy;
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                if (copySuccess) copySuccess.classList.remove('hidden');
-                setTimeout(() => {
-                    if (copySuccess) copySuccess.classList.add('hidden');
-                }, 2000);
-            } catch (err) {
-                console.error('Error al copiar:', err);
-            } finally {
-                document.body.removeChild(textArea);
-            }
-        }
     </script>
+</body>
+</html>
