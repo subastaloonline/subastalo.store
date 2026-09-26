@@ -126,7 +126,10 @@
                 <p class="text-xl text-gray-600">No necesitas instalar nada. Participa directamente desde tu red social favorita.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 relative">
+         <!-- Grid de Productos Dinámico -->
+<div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- Los productos de Airtable se cargarán aquí automáticamente -->
+</div>
                 <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-1 bg-gradient-to-r from-gray-300 via-brand-red to-gray-300 z-0"></div>
 
                 <div class="relative z-10 flex flex-col items-center text-center group">
@@ -430,34 +433,138 @@
     </div>
 
     <!-- Scripts -->
-    <script>
+   <script>
         // ==========================================
         // CONFIGURACIÓN DE CONEXIÓN CON AIRTABLE
         // ==========================================
-        const TOKEN = 'patsv7jWU24fHhv0V.bf0cb54c1ce752a7719a6995abf7a4b0dcd8e826dd52c7ced8aa433c38dc187a';
-        const BASE_ID = 'app6eLq2iamBecJh3';
+        const TOKEN = 'AQUÍ_PEGA_TU_TOKEN_PAT';
+        const BASE_ID = 'AQUÍ_PEGA_TU_BASE_ID';
+        const TABLE_NAME = 'Productos'; // Nombre exacto de tu tabla en Airtable
 
         // ==========================================
-        // NAVEGACIÓN Y MENÚ MÓVIL
+        // FUNCIÓN PARA LEER PRODUCTOS DESDE AIRTABLE
         // ==========================================
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        async function cargarProductosAirtable() {
+            const container = document.getElementById('products-container');
+            if (!container) return;
 
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
+            // Muestra mensaje de carga en pantalla
+            container.innerHTML = `
+                <div class="col-span-full text-center py-12">
+                    <i class="fa-solid fa-spinner fa-spin text-4xl text-brand-red mb-3"></i>
+                    <p class="text-gray-500 font-medium">Cargando subastas en vivo...</p>
+                </div>
+            `;
 
-            menu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
+            try {
+                const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`, {
+                    headers: {
+                        Authorization: `Bearer ${TOKEN}`
+                    }
                 });
-            });
+
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta de Airtable');
+                }
+
+                const data = await response.json();
+                const records = data.records;
+
+                if (!records || records.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full text-center text-gray-500 py-12">
+                            <i class="fa-solid fa-box-open text-4xl mb-3"></i>
+                            <p class="text-lg">No hay subastas activas en este momento.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Limpia el mensaje de carga
+                container.innerHTML = '';
+
+                // Crea cada tarjeta de producto
+                records.forEach(record => {
+                    const fields = record.fields;
+                    
+                    const nombre = fields.Nombre || 'Producto en Subasta';
+                    const categoria = fields.Categoria || 'Destacado';
+                    const puja = fields.PujaActual ? `$${Number(fields.PujaActual).toLocaleString('es-CL')}` : '$0';
+                    const precioRef = fields.PrecioRef ? `$${Number(fields.PrecioRef).toLocaleString('es-CL')}` : null;
+                    const horas = fields.HorasRestantes || '24';
+                    
+                    // Extraer foto de Airtable
+                    let fotoUrl = 'https://via.placeholder.com/400x300?text=Sin+Imagen';
+                    if (fields.Foto && Array.isArray(fields.Foto) && fields.Foto.length > 0) {
+                        fotoUrl = fields.Foto[0].url;
+                    } else if (typeof fields.Foto === 'string' && fields.Foto.startsWith('http')) {
+                        fotoUrl = fields.Foto;
+                    }
+
+                    // Enlace directo a WhatsApp
+                    const mensajeWsp = encodeURIComponent(`Hola, quiero comprar/reservar el producto: ${nombre}`);
+                    const wspLink = `https://wa.me/56957128923?text=${mensajeWsp}`;
+
+                    const cardHTML = `
+                        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+                            <div class="relative h-56 bg-gray-100">
+                                <img src="${fotoUrl}" alt="${nombre}" class="w-full h-full object-cover">
+                                <div class="absolute top-3 right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                    <i class="fa-regular fa-clock mr-1"></i> <span>${horas}:00:00</span>
+                                </div>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">${categoria}</p>
+                                <h3 class="text-lg font-bold text-brand-black mb-2 line-clamp-2">${nombre}</h3>
+                                <div class="mt-auto pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between items-end mb-4">
+                                        <div>
+                                            <p class="text-xs text-gray-400">Puja actual</p>
+                                            <p class="text-2xl font-black text-brand-red">${puja}</p>
+                                        </div>
+                                        ${precioRef ? `
+                                        <div class="text-right">
+                                            <p class="text-xs text-gray-400">Precio Ref.</p>
+                                            <p class="text-sm font-semibold text-gray-400 line-through">${precioRef}</p>
+                                        </div>` : ''}
+                                    </div>
+                                    <a href="${wspLink}" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition flex justify-center items-center gap-2 text-center">
+                                        ⚡ Comprar / Reservar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    container.innerHTML += cardHTML;
+                });
+
+            } catch (error) {
+                console.error('Error cargando Airtable:', error);
+                container.innerHTML = `
+                    <div class="col-span-full text-center text-red-500 py-12">
+                        <i class="fa-solid fa-triangle-exclamation text-3xl mb-2"></i>
+                        <p class="font-bold">Error al conectar con la base de datos.</p>
+                        <p class="text-sm text-gray-500">Revisa que tu TOKEN y BASE_ID estén bien escritos y que la tabla se llame "Productos".</p>
+                    </div>
+                `;
+            }
         }
 
-        // ==========================================
-        // LÓGICA DE MODALES Y COPIA DE TEXTO
-        // ==========================================
+        // Ejecutar la carga automáticamente cuando abra la página
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarProductosAirtable();
+            
+            // Navegación menú móvil
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            if (btn && menu) {
+                btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+                menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+            }
+        });
+
+        // Modales y utilidades
         const bidModal = document.getElementById('bidModal');
         const modalProduct = document.getElementById('modalProduct');
         const modalCode = document.getElementById('modalCode');
@@ -469,7 +576,7 @@
             modalProduct.textContent = productName;
             modalCode.textContent = suggestedBidText;
             textToCopy = suggestedBidText;
-            copySuccess.classList.add('hidden');
+            if (copySuccess) copySuccess.classList.add('hidden');
             bidModal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
@@ -503,5 +610,3 @@
             }
         }
     </script>
-</body>
-</html>
