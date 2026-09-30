@@ -187,21 +187,19 @@
             </div>
         </div>
     </section>
-
-    <!-- Script de conexión a Airtable -->
+<!-- Script de conexión a Airtable -->
     <script>
-        // Configuración de Airtable
-        const AIRTABLE_PAT = 'pati9Cb0PCFrkfG5U.33dfc4390da1eeac12172dd3740373bed40ca839630d380dca4e603167c61edb 
-'; 
-        const BASE_ID = 'appO4z38hKC0sqOCa/tblUy6KSIZ5a1nWgj/viw4kqqvi42TT3oaK'; 
-        const TABLE_NAME = 'Imported table'; 
+        // Configuración de Airtable corregida
+        const AIRTABLE_PAT = 'pati9Cb0PCFrkfG5U.33dfc4390da1eeac12172dd3740373bed40ca839630d380dca4e603167c61edb'; 
+        const BASE_ID = 'appO4z38hKC0sqOCa'; 
+        const TABLE_ID = 'tblUy6KSIZ5a1nWgj'; // Se usa el ID de la tabla en lugar del nombre para evitar errores con espacios
 
         async function cargarSubastas() {
             const grid = document.getElementById('subastas-grid');
             
             try {
                 // Solo trae los productos marcados como 'Disponible'
-                const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}?filterByFormula={Estado}='Disponible'`, {
+                const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}?filterByFormula={Estado}='Disponible'`, {
                     headers: {
                         Authorization: `Bearer ${AIRTABLE_PAT}`
                     }
@@ -257,8 +255,8 @@
 
         // Ejecutar al cargar la página
         document.addEventListener('DOMContentLoaded', cargarSubastas);
-    </script>
-            </div>
+    </script>           
+</div>
         </div>
     </section>
 
